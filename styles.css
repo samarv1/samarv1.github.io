@@ -157,6 +157,44 @@ h2 {
   max-width: 42rem;
 }
 
+.story-media {
+  width: 76%;
+  margin: 2.5rem 0;
+}
+
+.story-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.story-media--pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.story-media--high-school {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.story-media--events {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.story-media__event-stack {
+  display: grid;
+  gap: 1rem;
+}
+
 .bio-panel > :first-child {
   margin-top: 0;
 }
@@ -184,6 +222,17 @@ h2 {
 
   .bio-panel {
     font-size: 1.125rem;
+  }
+
+  .story-media {
+    width: 100%;
+    margin-block: 2rem;
+  }
+
+  .story-media--pair,
+  .story-media--high-school,
+  .story-media--events {
+    grid-template-columns: 1fr;
   }
 }
 
