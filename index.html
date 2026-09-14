@@ -98,14 +98,14 @@
           <figure class="story-media story-media--pair">
             <img
               src="assets/images/web/childhood-disneyland.webp"
-              alt=""
+              alt="Learning how to drive at Disneyland"
               width="1280"
               height="960"
               decoding="async"
             />
             <img
               src="assets/images/web/childhood-park.webp"
-              alt=""
+              alt="Me and my childhood best friend"
               width="1280"
               height="960"
               decoding="async"
@@ -120,14 +120,14 @@
           <figure class="story-media story-media--high-school">
             <img
               src="assets/images/web/high-school-deca.webp"
-              alt=""
+              alt="My DECA partner and I before our competition"
               width="1280"
               height="854"
               decoding="async"
             />
             <img
               src="assets/images/web/senior-spirit-week.webp"
-              alt=""
+              alt="Celebrating our 1st-place Spirit Week win"
               width="1280"
               height="1707"
               decoding="async"
@@ -159,7 +159,7 @@
           <figure class="story-media">
             <img
               src="assets/images/web/roomu-early-team.webp"
-              alt=""
+              alt="The OG RoomU team celebrating our launch"
               width="1280"
               height="865"
               decoding="async"
@@ -187,14 +187,14 @@
           <figure class="story-media story-media--pair">
             <img
               src="assets/images/web/roomu-generations-retreat.webp"
-              alt=""
+              alt="RoomU through the years"
               width="1280"
               height="854"
               decoding="async"
             />
             <img
               src="assets/images/web/aggieworks-retreat.webp"
-              alt=""
+              alt="AggieWorks members and alumni at our Winter 2026 retreat"
               width="1280"
               height="854"
               decoding="async"
@@ -212,7 +212,7 @@
           <figure class="story-media story-media--events">
             <img
               src="assets/images/web/tech-mixer-crowd.webp"
-              alt=""
+              alt="A packed California Hall for Tech Mixer 2025"
               width="1280"
               height="1707"
               decoding="async"
@@ -220,14 +220,14 @@
             <div class="story-media__event-stack">
               <img
                 src="assets/images/web/prodcon-2026.webp"
-                alt=""
+                alt="With the competitors, speakers, and organizers who made ProdCon 2026 happen"
                 width="1280"
                 height="464"
                 decoding="async"
               />
               <img
                 src="assets/images/web/posthog-group.webp"
-                alt=""
+                alt="Free merch at our PostHog event!"
                 width="1280"
                 height="960"
                 decoding="async"
@@ -260,14 +260,14 @@
           <figure class="story-media story-media--graduation">
             <img
               src="assets/images/web/uc-davis-graduation.webp"
-              alt=""
+              alt="Not sure what I was looking at, but I was excited to graduate :)"
               width="1280"
               height="854"
               decoding="async"
             />
             <img
               src="assets/images/web/uc-davis-graduation-group.webp"
-              alt=""
+              alt="Graduating with my best friends"
               width="1280"
               height="1920"
               decoding="async"
@@ -467,6 +467,37 @@
         </div>
       </section>
     </main>
+    <dialog class="image-viewer" aria-label="Image carousel">
+      <button class="image-viewer__close" type="button" aria-label="Close image viewer">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <div class="image-viewer__stage">
+        <div class="image-viewer__media">
+          <img class="image-viewer__image" alt="" />
+          <p class="image-viewer__caption"></p>
+        </div>
+        <button
+          class="image-viewer__control image-viewer__control--previous"
+          type="button"
+          aria-label="Previous image"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M15 5l-7 7 7 7" />
+          </svg>
+        </button>
+        <button
+          class="image-viewer__control image-viewer__control--next"
+          type="button"
+          aria-label="Next image"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </dialog>
     <script
       type="module"
       src="https://static.cloudflareinsights.com/beacon.min.js"
