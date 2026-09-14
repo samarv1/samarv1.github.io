@@ -55,7 +55,14 @@ a:hover {
 button,
 a {
   touch-action: manipulation;
+}
+
+button {
   cursor: default;
+}
+
+a {
+  cursor: pointer;
 }
 
 button:focus-visible,
