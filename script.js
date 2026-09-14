@@ -28,6 +28,7 @@ const previousButton = imageViewer.querySelector(".image-viewer__control--previo
 const nextButton = imageViewer.querySelector(".image-viewer__control--next");
 const closeButton = imageViewer.querySelector(".image-viewer__close");
 let currentImageIndex = 0;
+let openingRequest = 0;
 
 function showImage(index) {
   currentImageIndex = (index + storyImages.length) % storyImages.length;
@@ -38,9 +39,17 @@ function showImage(index) {
   viewerCaption.textContent = selectedImage.alt;
 }
 
-function openImage(index) {
+async function openImage(index) {
+  const request = ++openingRequest;
   showImage(index);
-  imageViewer.showModal();
+
+  try {
+    await viewerImage.decode();
+  } catch {}
+
+  if (request === openingRequest && !imageViewer.open) {
+    imageViewer.showModal();
+  }
 }
 
 storyImages.forEach((image, index) => {
