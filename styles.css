@@ -136,6 +136,7 @@ h2 {
   border-bottom: 1px solid transparent;
   background: transparent;
   color: var(--color-secondary);
+  cursor: pointer;
   font: inherit;
 }
 
@@ -488,6 +489,10 @@ body:has(.image-viewer[open]) {
 
   .image-viewer__image {
     max-height: calc(100dvh - 7.5rem);
+  }
+
+  .image-viewer__caption {
+    font-size: 0.875rem;
   }
 
   .image-viewer__control {
