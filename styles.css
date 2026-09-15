@@ -17,8 +17,9 @@
 :root {
   color-scheme: dark;
   --color-background: #151614;
-  --color-text: #ebeae4;
+  --color-text: #e8e5df;
   --color-secondary: #a19f98;
+  --color-editorial-link-hover: #c7c4bc;
   --color-divider: #343530;
   --font-interface: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-reading: "Newsreader", "Iowan Old Style", Georgia, serif;
@@ -155,6 +156,18 @@ h2 {
   max-width: 42rem;
 }
 
+.bio-panel p a {
+  color: var(--color-secondary);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.15em;
+  transition: color 160ms ease;
+}
+
+.bio-panel p a:hover {
+  color: var(--color-editorial-link-hover);
+}
+
 .story-media {
   width: 76%;
   margin: 2.5rem 0;
@@ -164,6 +177,7 @@ h2 {
   display: block;
   width: 100%;
   height: auto;
+  border: 1px solid rgb(232 229 223 / 12%);
   border-radius: 0.25rem;
   cursor: zoom-in;
   transition:
@@ -368,6 +382,31 @@ body:has(.image-viewer[open]) {
   grid-template-columns: 10rem minmax(0, 1fr);
   gap: 2rem;
   padding-block: 1.75rem;
+}
+
+.work-company--linked,
+.shipped-project--linked {
+  position: relative;
+}
+
+.work-company--linked > h3 a::after,
+.shipped-project--linked > h3 a::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+}
+
+.work-company--linked .work-role a {
+  position: relative;
+  z-index: 2;
+}
+
+@media (hover: none) {
+  .work-company--linked > h3 a:active::after,
+  .shipped-project--linked > h3 a:active::after {
+    background: rgb(232 229 223 / 4%);
+  }
 }
 
 .work-company:first-child,
