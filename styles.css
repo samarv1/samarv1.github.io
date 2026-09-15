@@ -23,7 +23,7 @@
   --color-divider: #343530;
   --font-interface: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-reading: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --page-width: 52.5rem;
+  --page-width: 56.25rem;
 }
 
 * {
@@ -105,7 +105,7 @@ a:focus-visible {
 .bio,
 .content-section {
   border-top: 1px solid var(--color-divider);
-  padding-block: 3rem;
+  padding-block: 2.5rem;
 }
 
 .section-bar {
@@ -113,7 +113,7 @@ a:focus-visible {
   align-items: baseline;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 h1,
@@ -153,7 +153,7 @@ h2 {
 }
 
 .bio-panel p {
-  max-width: 42rem;
+  max-width: 46rem;
 }
 
 .bio-panel p a {
@@ -374,14 +374,14 @@ body:has(.image-viewer[open]) {
 
 .work-list,
 .shipped-list {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .work-company {
   display: grid;
   grid-template-columns: 10rem minmax(0, 1fr);
   gap: 2rem;
-  padding-block: 1.75rem;
+  padding-block: 1.5rem;
 }
 
 .work-company--linked,
@@ -435,7 +435,7 @@ body:has(.image-viewer[open]) {
 
 .work-company__roles {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 .work-role {
@@ -470,7 +470,7 @@ body:has(.image-viewer[open]) {
   display: grid;
   grid-template-columns: 10rem minmax(0, 1fr) auto;
   gap: 2rem;
-  padding-block: 1.25rem;
+  padding-block: 1rem;
 }
 
 .shipped-project h3,
