@@ -384,12 +384,10 @@ body:has(.image-viewer[open]) {
   padding-block: 1.5rem;
 }
 
-.work-company--linked,
 .shipped-project--linked {
   position: relative;
 }
 
-.work-company--linked > h3 a::after,
 .shipped-project--linked > h3 a::after {
   position: absolute;
   z-index: 1;
@@ -397,13 +395,7 @@ body:has(.image-viewer[open]) {
   content: "";
 }
 
-.work-company--linked .work-role a {
-  position: relative;
-  z-index: 2;
-}
-
 @media (hover: none) {
-  .work-company--linked > h3 a:active::after,
   .shipped-project--linked > h3 a:active::after {
     background: rgb(232 229 223 / 4%);
   }
