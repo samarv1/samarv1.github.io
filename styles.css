@@ -269,6 +269,85 @@ h2 {
   color: var(--color-editorial-link-hover);
 }
 
+.bio-annotation {
+  position: relative;
+  display: inline-block;
+}
+
+.bio-annotation__trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.bio-annotation__trigger:hover,
+.bio-annotation__trigger.is-pinned {
+  color: var(--color-secondary);
+}
+
+.bio-annotation__note {
+  position: absolute;
+  z-index: 2;
+  bottom: 100%;
+  left: 0;
+  width: min(18rem, calc(100vw - 2rem));
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-divider);
+  border-radius: 0.25rem;
+  background: var(--color-background);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.bio-annotation__note::after {
+  position: absolute;
+  bottom: -0.3125rem;
+  left: var(--annotation-pointer, 0.75rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-background);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.bio-annotation__note.is-below {
+  top: 100%;
+  bottom: auto;
+}
+
+.bio-annotation__note.is-below::after {
+  top: -0.3125rem;
+  bottom: auto;
+  transform: rotate(225deg);
+}
+
+.bio-annotation__note--films {
+  width: min(26rem, calc(100vw - 2rem));
+}
+
+.bio-annotation__posters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.bio-annotation__posters img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 1px solid var(--color-divider);
+  border-radius: 0.25rem;
+}
+
 .story-media {
   width: 76%;
   margin: 2.5rem 0;

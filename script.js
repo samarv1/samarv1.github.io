@@ -23,6 +23,67 @@ copyEmailButton.addEventListener("click", async () => {
   }
 });
 
+let closeActiveNote;
+
+document.querySelectorAll(".bio-annotation").forEach((annotation) => {
+  const trigger = annotation.querySelector("button");
+  const note = annotation.querySelector(".bio-annotation__note");
+  let pinned = false;
+
+  function hideNote() {
+    if (closeActiveNote === hideNote) closeActiveNote = undefined;
+    pinned = false;
+    trigger.classList.remove("is-pinned");
+    note.hidden = true;
+  }
+
+  function showNote() {
+    if (closeActiveNote && closeActiveNote !== hideNote) closeActiveNote();
+    closeActiveNote = hideNote;
+    note.hidden = false;
+    const triggerBounds = trigger.getBoundingClientRect();
+    const { width: noteWidth, height: noteHeight } = note.getBoundingClientRect();
+    note.classList.toggle("is-below", note.id === "films-note" || triggerBounds.top < noteHeight + 16);
+    const left = Math.max(16, Math.min(triggerBounds.left, document.documentElement.clientWidth - noteWidth - 16));
+    note.style.left = `${left - triggerBounds.left}px`;
+    note.style.setProperty("--annotation-pointer", `${triggerBounds.left + triggerBounds.width / 2 - left - 4}px`);
+  }
+
+  annotation.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "mouse") showNote();
+  });
+  annotation.addEventListener("pointerleave", () => {
+    if (!pinned && !trigger.matches(":focus-visible")) hideNote();
+  });
+  trigger.addEventListener("focus", () => {
+    if (trigger.matches(":focus-visible")) showNote();
+  });
+  trigger.addEventListener("blur", () => {
+    if (!pinned) hideNote();
+  });
+  trigger.addEventListener("click", () => {
+    if (pinned) {
+      hideNote();
+    } else {
+      pinned = true;
+      trigger.classList.add("is-pinned");
+      showNote();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hideNote();
+  });
+  document.addEventListener("click", (event) => {
+    if (!annotation.contains(event.target)) hideNote();
+  });
+  window.addEventListener("resize", () => {
+    if (!note.hidden) showNote();
+  });
+  window.addEventListener("scroll", () => {
+    if (!note.hidden) showNote();
+  }, { passive: true });
+});
+
 const briefTab = document.querySelector("#brief-tab");
 const storyTab = document.querySelector("#story-tab");
 const briefPanel = document.querySelector("#brief-panel");
