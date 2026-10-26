@@ -1,3 +1,28 @@
+const copyEmailButton = document.querySelector(".identity__copy");
+const copyEmailStatus = document.querySelector(".identity__copy-status");
+const emailLink = document.querySelector(".identity__email a");
+let copyEmailTimeout;
+
+copyEmailButton.addEventListener("click", async () => {
+  clearTimeout(copyEmailTimeout);
+  copyEmailButton.classList.remove("is-copied");
+  copyEmailStatus.textContent = "";
+
+  try {
+    await navigator.clipboard.writeText(emailLink.textContent.trim());
+    copyEmailButton.classList.add("is-copied");
+    copyEmailStatus.dataset.success = "true";
+    copyEmailStatus.textContent = "Email address copied.";
+    copyEmailTimeout = setTimeout(() => {
+      copyEmailButton.classList.remove("is-copied");
+      copyEmailStatus.textContent = "";
+    }, 2000);
+  } catch {
+    copyEmailStatus.dataset.success = "false";
+    copyEmailStatus.textContent = "Could not copy. Select and copy the email address.";
+  }
+});
+
 const briefTab = document.querySelector("#brief-tab");
 const storyTab = document.querySelector("#story-tab");
 const briefPanel = document.querySelector("#brief-panel");
