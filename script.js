@@ -24,6 +24,7 @@ copyEmailButton.addEventListener("click", async () => {
 });
 
 let closeActiveNote;
+let activeNotePinned = false;
 
 document.querySelectorAll(".bio-annotation").forEach((annotation) => {
   const trigger = annotation.querySelector("button");
@@ -31,7 +32,10 @@ document.querySelectorAll(".bio-annotation").forEach((annotation) => {
   let pinned = false;
 
   function hideNote() {
-    if (closeActiveNote === hideNote) closeActiveNote = undefined;
+    if (closeActiveNote === hideNote) {
+      closeActiveNote = undefined;
+      activeNotePinned = false;
+    }
     pinned = false;
     trigger.classList.remove("is-pinned");
     note.hidden = true;
@@ -40,6 +44,7 @@ document.querySelectorAll(".bio-annotation").forEach((annotation) => {
   function showNote() {
     if (closeActiveNote && closeActiveNote !== hideNote) closeActiveNote();
     closeActiveNote = hideNote;
+    activeNotePinned = pinned;
     note.hidden = false;
     const triggerBounds = trigger.getBoundingClientRect();
     const { width: noteWidth, height: noteHeight } = note.getBoundingClientRect();
@@ -50,7 +55,7 @@ document.querySelectorAll(".bio-annotation").forEach((annotation) => {
   }
 
   annotation.addEventListener("pointerenter", (event) => {
-    if (event.pointerType === "mouse") showNote();
+    if (event.pointerType === "mouse" && !activeNotePinned) showNote();
   });
   annotation.addEventListener("pointerleave", () => {
     if (!pinned && !trigger.matches(":focus-visible")) hideNote();
